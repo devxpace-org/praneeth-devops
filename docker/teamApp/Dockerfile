@@ -3,10 +3,10 @@ FROM node:20-alpine
 WORKDIR /praneeth/app/
 
 COPY package.json .
-COPY shahab.js .
+COPY sumanth.js .
 
 RUN npm install
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "shahab.js"]
+ENTRYPOINT ["node", "sumanth.js"]
