@@ -3,20 +3,7 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send("WELCOME TO PRANEETH'S TEAM APP HOMEPAGE!")
-  res.send("")
-  res.send("Available pages are:")
-  res.send("/chetana")
-  res.send("/harshitha")
-  res.send("/supriya")
-  res.send("/tejaswini")
-  res.send("/karthik")
-  res.send("/shahab")
-  res.send("/raja")
-  res.send("/sumanth")
-  res.send("/maazin")
-  res.send("/haripriya")
-
+  res.send("WELCOME TO PRANEETH'S TEAM APP HOMEPAGE! <br/> <br/>Available pages are: <br/> /chetana <br/> /harshitha <br/> /supriya <br/> /tejaswini <br/> /karthik <br/> /shahab <br/> /raja <br/> /sumanth <br/> /maazin <br/> /haripriya")
 })
 
 app.listen(port, () => {
