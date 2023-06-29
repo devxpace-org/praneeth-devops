@@ -3,10 +3,10 @@ FROM node:20-alpine
 WORKDIR /praneeth/app/
 
 COPY package.json .
-COPY chetana.js .
+COPY home.js .
 
 RUN npm install
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "chetana.js"]
+ENTRYPOINT ["node", "home.js"]
