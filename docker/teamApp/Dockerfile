@@ -3,10 +3,10 @@ FROM node:20-alpine
 WORKDIR /praneeth/app/
 
 COPY package.json .
-COPY karthik.js .
+COPY maazin.js .
 
 RUN npm install
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "karthik.js"]
+ENTRYPOINT ["node", "maazin.js"]
