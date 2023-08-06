@@ -2,12 +2,16 @@ resource "aws_security_group" "alb-sg" {
   name   = "alb-sg"
   vpc_id = aws_vpc.myvpc.id
 
-  ingress {
-    description = "HTTP from Internet"
-    from_port   = 80
-    to_port     = 80
+  dynamic "ingress" {
+    description = "HTTP, HTTPS from Internet"
+    iterator = port
+    for_each = var.ingressrules
+    content{
+    from_port   = port.value
+    to_port     = port.value
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 
   egress {
@@ -22,12 +26,16 @@ resource "aws_security_group" "asg-sg" {
   name   = "asg-sg"
   vpc_id = aws_vpc.myvpc.id
 
-  ingress {
-    description     = "HTTP from ALB"
-    from_port       = 80
-    to_port         = 80
+  dynamic "ingress" {
+    description     = "HTTP, HTTPS from ALB"
+    iterator = port
+    for_each = var.ingressrules
+    content {
+    from_port       = port.value
+    to_port         = port.value
     protocol        = "tcp"
     security_groups = [aws_security_group.alb-sg.id]
+    }
   }
 
   egress {
