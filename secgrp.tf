@@ -3,7 +3,7 @@ resource "aws_security_group" "alb-sg" {
   vpc_id = aws_vpc.myvpc.id
 
   dynamic "ingress" {
-    description = "HTTP, HTTPS from Internet"
+    # description = "HTTP, HTTPS from Internet"
     iterator = port
     for_each = var.ingressrules
     content{
@@ -27,7 +27,7 @@ resource "aws_security_group" "asg-sg" {
   vpc_id = aws_vpc.myvpc.id
 
   dynamic "ingress" {
-    description     = "HTTP, HTTPS from ALB"
+    # description     = "HTTP, HTTPS from ALB"
     iterator = port
     for_each = var.ingressrules
     content {
