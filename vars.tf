@@ -1,5 +1,5 @@
 variable "APP" {
-  default = "mytest"
+  default = "mytest1"
 }
 
 variable "REGION" {
